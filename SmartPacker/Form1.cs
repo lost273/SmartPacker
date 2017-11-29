@@ -72,8 +72,6 @@ namespace SmartPacker {
                     }
                 }
             }
-            //List<Row> rows = ObjectFill(dataFromFile);
-            //SerializeFile(rows);
         }
 
         private void SaveButton_Click(object sender, EventArgs e) {
@@ -82,6 +80,9 @@ namespace SmartPacker {
 
         private void SaveFileDialog_FileOk(object sender, CancelEventArgs e) {
             dataFromFile.WriteXml(saveFileDialog.FileName);
+
+            DataTable data = new DataTable();
+            data.ReadXml(saveFileDialog.FileName);
 
             //XmlSerializer ser = new XmlSerializer(typeof(DataSet));
 

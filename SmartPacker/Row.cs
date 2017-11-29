@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SmartPacker {
     [Serializable]
-    class Row {
+    public class Row {
         public DateTime Date { get; set; }
         public string Name { get; set; }
         public int Quantity { get; set; }
