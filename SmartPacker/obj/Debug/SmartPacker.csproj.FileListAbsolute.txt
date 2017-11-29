@@ -1,1 +1,10 @@
 D:\programs\Projects\GIT\SmartPacker\SmartPacker\bin\Debug\SmartPacker.exe.config
+D:\prog\VSProj\GIT\SmartPacker\SmartPacker\bin\Debug\SmartPacker.exe.config
+D:\prog\VSProj\GIT\SmartPacker\SmartPacker\bin\Debug\SmartPacker.exe
+D:\prog\VSProj\GIT\SmartPacker\SmartPacker\bin\Debug\SmartPacker.pdb
+D:\prog\VSProj\GIT\SmartPacker\SmartPacker\obj\Debug\SmartPacker.csprojResolveAssemblyReference.cache
+D:\prog\VSProj\GIT\SmartPacker\SmartPacker\obj\Debug\SmartPacker.Form1.resources
+D:\prog\VSProj\GIT\SmartPacker\SmartPacker\obj\Debug\SmartPacker.Properties.Resources.resources
+D:\prog\VSProj\GIT\SmartPacker\SmartPacker\obj\Debug\SmartPacker.csproj.GenerateResource.Cache
+D:\prog\VSProj\GIT\SmartPacker\SmartPacker\obj\Debug\SmartPacker.exe
+D:\prog\VSProj\GIT\SmartPacker\SmartPacker\obj\Debug\SmartPacker.pdb
