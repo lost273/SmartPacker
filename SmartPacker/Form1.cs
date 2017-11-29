@@ -14,7 +14,7 @@ namespace SmartPacker {
     public partial class Form1 : Form {
         private string Excel03ConString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties='Excel 8.0;HDR={1};IMEX=1'";
         private string Excel07ConString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties='Excel 8.0;HDR={1};IMEX=1'";
-        DataTable dataTableSelect = new DataTable();
+        DataTable dataFromFile = new DataTable();
         public Form1 () {
             InitializeComponent();
         }
@@ -42,7 +42,7 @@ namespace SmartPacker {
                     break;
             }
 
-            // get the names of the sheets.
+            // get the names of the sheets
             using (OleDbConnection con = new OleDbConnection(conStr)) {
                 using (OleDbCommand cmd = new OleDbCommand()) {
                     cmd.Connection = con;
@@ -56,22 +56,23 @@ namespace SmartPacker {
                 }
             }
 
-            //Read Data from the First Sheet.
+            //Read Data from the Sheets
             using (OleDbConnection con = new OleDbConnection(conStr)) {
                 using (OleDbCommand cmd = new OleDbCommand()) {
                     using (OleDbDataAdapter oda = new OleDbDataAdapter()) {
-                        DataTable dataTableOriginal = new DataTable();
                         con.Open();
                         foreach (string Name in sheetNames) {
                             cmd.CommandText = "SELECT * From [" + Name + "]";
                             cmd.Connection = con;
                             oda.SelectCommand = cmd;
-                            oda.Fill(dataTableOriginal);
+                            oda.Fill(dataFromFile);
                         }
                         con.Close();
                     }
                 }
             }
+            List<Row> rows = ObjectFill(dataFromFile);
+            SerializeFile(rows);
         }
     }
 }
