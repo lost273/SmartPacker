@@ -15,7 +15,8 @@ namespace SmartPacker {
     public partial class Form1 : Form {
         private string Excel03ConString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties='Excel 8.0;HDR={1};IMEX=1'";
         private string Excel07ConString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties='Excel 8.0;HDR={1};IMEX=1'";
-        DataTable dataFromFile = new DataTable("table");
+        DataTable dataFromFile = new DataTable("Table");
+        DataSet ds = new DataSet("DataSet");
         public Form1 () {
             InitializeComponent();
         }
@@ -72,6 +73,7 @@ namespace SmartPacker {
                     }
                 }
             }
+            SaveButton.Visible = true;
         }
 
         private void SaveButton_Click(object sender, EventArgs e) {
@@ -79,28 +81,11 @@ namespace SmartPacker {
         }
 
         private void SaveFileDialog_FileOk(object sender, CancelEventArgs e) {
-            dataFromFile.WriteXml(saveFileDialog.FileName);
-
-            DataTable data = new DataTable();
-            data.ReadXml(saveFileDialog.FileName);
-
-            //XmlSerializer ser = new XmlSerializer(typeof(DataSet));
-
-            // Creates a DataSet; adds a table, column, and ten rows.
-            //DataSet ds = new DataSet("DataSet");
-            //DataTable t = new DataTable("table1");
-            //DataColumn c = new DataColumn("thing");
-            //t.Columns.Add(c);
-            //ds.Tables.Add(t);
-            //DataRow r;
-            //for (int i = 0; i < 10; i++) {
-            //    r = t.NewRow();
-            //    r[0] = "Thing " + i;
-            //    t.Rows.Add(r);
-            //}
-            //TextWriter writer = new StreamWriter(saveFileDialog.FileName);
-            //ser.Serialize(writer, ds);
-            //writer.Close();
+            XmlSerializer ser = new XmlSerializer(typeof(DataSet));
+            ds.Tables.Add(dataFromFile);
+            TextWriter writer = new StreamWriter(saveFileDialog.FileName);
+            ser.Serialize(writer, ds);
+            writer.Close();
         }
     }
 }
