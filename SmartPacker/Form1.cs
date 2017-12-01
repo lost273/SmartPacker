@@ -16,9 +16,10 @@ namespace SmartPacker {
         private string Excel03ConString = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};Extended Properties='Excel 8.0;HDR={1};IMEX=1'";
         private string Excel07ConString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Extended Properties='Excel 8.0;HDR={1};IMEX=1'";
         DataTable dataFromFile = new DataTable("Table");
-        DataSet ds = new DataSet("DataSet");
         public Form1 () {
             InitializeComponent();
+            openFileDialog.Filter = "xls files (*.xls)|*.xls|xlsx files (*.xlsx)|*.xlsx";
+            saveFileDialog.Filter = "xml files (*.xml)|*.xml";
         }
 
         private void OpenButton_Click (object sender, EventArgs e) {
@@ -81,6 +82,7 @@ namespace SmartPacker {
         }
 
         private void SaveFileDialog_FileOk(object sender, CancelEventArgs e) {
+            DataSet ds = new DataSet(CalendarView.SelectionEnd.Date.ToString());
             XmlSerializer ser = new XmlSerializer(typeof(DataSet));
             ds.Tables.Add(dataFromFile);
             TextWriter writer = new StreamWriter(saveFileDialog.FileName);

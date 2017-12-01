@@ -27,6 +27,7 @@
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.OpenButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
+            this.CalendarView = new System.Windows.Forms.MonthCalendar();
             this.SuspendLayout();
             // 
             // openFileDialog
@@ -40,7 +41,7 @@
             // 
             // OpenButton
             // 
-            this.OpenButton.Location = new System.Drawing.Point(159, 34);
+            this.OpenButton.Location = new System.Drawing.Point(12, 12);
             this.OpenButton.Name = "OpenButton";
             this.OpenButton.Size = new System.Drawing.Size(75, 23);
             this.OpenButton.TabIndex = 0;
@@ -50,7 +51,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(159, 63);
+            this.SaveButton.Location = new System.Drawing.Point(303, 12);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
             this.SaveButton.TabIndex = 2;
@@ -59,11 +60,18 @@
             this.SaveButton.Visible = false;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
+            // CalendarView
+            // 
+            this.CalendarView.Location = new System.Drawing.Point(114, 12);
+            this.CalendarView.Name = "CalendarView";
+            this.CalendarView.TabIndex = 3;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(386, 128);
+            this.ClientSize = new System.Drawing.Size(390, 183);
+            this.Controls.Add(this.CalendarView);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.OpenButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -80,6 +88,7 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
         private System.Windows.Forms.Button OpenButton;
         private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.MonthCalendar CalendarView;
     }
 }
 
